@@ -9,9 +9,15 @@ package figuras.mejoradas;
  */
 public final class Cuadrado extends Figura {
 
-    //  Objeto que guarda las coordenadas (x,y) del punto 3
+    /**
+     * Objeto que guarda las coordenadas (x,y) del punto 3
+     *
+     */
     private Punto punto3;
-    //  Objeto que guarda las coordenadas (x,y) del punto 4
+    /**
+     * Objeto que guarda las coordenadas (x,y) del punto 4
+     *
+     */
     private Punto punto4;
 
     /**
@@ -24,12 +30,11 @@ public final class Cuadrado extends Figura {
      */
     public Cuadrado(Punto punto1, Punto punto2, Punto punto3, Punto punto4) {
         super(punto1, punto2);
-         
+
         this.punto3 = punto3;
         this.punto4 = punto4;
-        
+
     }
-    
 
     /**
      * Calcula el lado 2 del cuadrado
@@ -42,7 +47,6 @@ public final class Cuadrado extends Figura {
         lado2 = Math.sqrt(lado2);
         return lado2;
     }
-    
 
     /**
      * Calcula el lado 3 del cuadrado
@@ -54,7 +58,8 @@ public final class Cuadrado extends Figura {
         lado3 = Math.sqrt(lado3);
         return lado3;
     }
-        /**
+
+    /**
      * Calcula el lado 4 del cuadrado
      *
      * @return lado4
@@ -64,49 +69,41 @@ public final class Cuadrado extends Figura {
         lado4 = Math.sqrt(lado4);
         return lado4;
     }
-    
-            /**
-             * Calcula el Area del Cuadrado
-             */
 
-            @Override
-            public void calcularArea() {
-                area = darLado1() * darLado2();
+    /**
+     * Calcula el Area del Cuadrado
+     */
+    @Override
+    public void calcularArea() {
+        area = darLado1() * darLado2();
+    }
+
+    /**
+     * Calcula el Perimetro del cuadrado
+     */
+    @Override
+    public void calcularPerimetro() {
+        perimetro = darLado1() + darLado2() + darLado3() + darLado4();
+    }
+
+    /**
+     * Metodo que valida si los puntos son de un cuadrado
+     *
+     * @return validar
+     */
+    @Override
+    public boolean validarPuntos() {
+        boolean validar = false;
+        if (darLado1() == darLado3() && darLado2() == darLado4()) {
+            double pendiente1 = (punto2.getY() - punto1.getY()) / (punto2.getX() - punto1.getX());
+            double pendiente2 = (punto3.getY() - punto2.getY()) / (punto3.getX() - punto2.getX());
+
+            if (pendiente1 != pendiente2) {
+                validar = true;
             }
-
-            /**
-             * Calcula el Perimetro del cuadrado
-             */
-
-            @Override
-            public void calcularPerimetro() {
-                perimetro = darLado1() + darLado2() + darLado3() + darLado4();
-            }
-
-            /**
-             * Metodo que valida si los puntos son de un cuadrado
-             *
-             * @return validar
-             */
-
-            @Override
-            public boolean validarPuntos() {
-                boolean validar = false;
-                if (darLado1() == darLado3() && darLado2() == darLado4()) {
-                    double pendiente1 = (punto2.getY() - punto1.getY()) / (punto2.getX() - punto1.getX());
-                    double pendiente2 = (punto3.getY() - punto2.getY()) / (punto3.getX() - punto2.getX());
-
-                    if (pendiente1 != pendiente2) {
-                        validar = true;
-                    }
-                }
-                return validar;
-            }
-
-            
-        
-
-   
+        }
+        return validar;
+    }
 
     /**
      * Metodo que da el tipo, cuadrado o rectangulo

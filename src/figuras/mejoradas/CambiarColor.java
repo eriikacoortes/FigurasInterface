@@ -17,21 +17,34 @@ import javax.swing.JFrame;
  */
 public class CambiarColor extends JDialog implements ActionListener {
 
-    //  Atributo Color que cambia dependiendo de los botones
-
+    /**  Atributo Color que cambia dependiendo de los botones
+     * 
+     */
     private Color colorGeneral;
-    //  Guarda el tipo de llamado 1-cambiar linea, 2-cambiar fondo
+    /**  Guarda el tipo de llamado 1-cambiar linea, 2-cambiar fondo
+     * 
+     */
     private byte tipo = 0;
-    //  Boton que cambia el color a rojo
+    /**  Boton que cambia el color a rojo
+     * 
+     */
     private JButton btnRojo;
-    //  Boton que cambia el color a rosado
+    /**  Boton que cambia el color a rosado
+     * 
+     */
     private JButton btnRosado;
-    //  Boton que cambia el color a amarillo
+    /**  Boton que cambia el color a amarillo
+     * 
+     */
     private JButton btnAmarillo;
-    //  Boton que cambia el color a azul
+    /**  Boton que cambia el color a azul
+     * 
+     */
     private JButton btnAzul;
 
-    //  Guarda la Interfaz
+    /** Guarda la Interfaz
+     * 
+     */
     private Interfaz interfaz;
 
     /**
@@ -53,17 +66,29 @@ public class CambiarColor extends JDialog implements ActionListener {
      * Metodo que configura el panel
      */
     public void configuracionPanel() {
-        //  Cambiar color de fondo del panel
+        /** Cambiar color de fondo del panel
+         * 
+         */
         setBackground(Color.WHITE);
-        //  Tamaño de la ventana
+        /**  Tamaño de la ventana
+         * 
+         */
         setSize(300, 300);
-        //  Localizacion en pantalla
+        /**  Localizacion en pantalla
+         * 
+         */
         setLocationRelativeTo(null);
-        //  Evitar que redimencionen la ventana
+        /**  Evitar que redimencionen la ventana
+         * 
+         */
         setResizable(false);
-        //  Que hacer al cerrar
+        /**  Que hacer al cerrar
+         * 
+         */
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //  Configurar disposicion de botones en la ventana
+        /** Configurar disposicion de botones en la ventana
+         * 
+         */
         setLayout(new GridLayout(1, 2));
     }
 

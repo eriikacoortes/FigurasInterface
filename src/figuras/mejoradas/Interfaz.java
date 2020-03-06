@@ -12,12 +12,20 @@ import javax.swing.JFrame;
  */
 public class Interfaz extends JFrame {
 
-    //  Panel de opciones para ingresar los puntos
-
+    /**
+     * Panel de opciones para ingresar los puntos
+     *
+     */
     private PanelOpciones1 panelOpciones1;
-    //  Panel de botones de cambio de color
+    /**
+     * Panel de botones de cambio de color
+     *
+     */
     private PanelBotones paneles;
-    //  Panel que imprime la figura
+    /**
+     * Panel que imprime la figura
+     *
+     */
     private PlanoCartesiano planoCartesiano;
 
     /**
@@ -41,13 +49,19 @@ public class Interfaz extends JFrame {
     }
 
     public void agregarPaneles() {
-
+        /**
+         * objeto que llama la clase panelOpciones para graficar
+         */
         panelOpciones1 = new PanelOpciones1(this);
         getContentPane().add(panelOpciones1, BorderLayout.NORTH);
-
+        /**
+         * objeto que llama la clase panelBotones para graficar
+         */
         paneles = new PanelBotones(this);
         getContentPane().add(paneles, BorderLayout.SOUTH);
-
+        /**
+         * objeto que llama la clase planoCartesiano para graficar
+         */
         planoCartesiano = new PlanoCartesiano();
         getContentPane().add(planoCartesiano, BorderLayout.CENTER);
 
@@ -55,7 +69,7 @@ public class Interfaz extends JFrame {
     }
 
     /**
-     * 
+     *
      * Metodo que obtiene el valor del panelTriangulo
      *
      * @return panelTriangulo
@@ -65,7 +79,7 @@ public class Interfaz extends JFrame {
     }
 
     /**
-     * 
+     *
      * Metodo que cambia el valor del panelTriangulo
      *
      * @param planoCartesiano

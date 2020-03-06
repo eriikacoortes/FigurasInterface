@@ -22,62 +22,149 @@ import javax.swing.JTextField;
 public class Puntos extends JDialog implements ActionListener {
 
     private JButton btnGuardar;
-//  Boton Aceptar que envia los valores de los puntos
+    /**
+     * Boton Aceptar que envia los valores de los puntos
+     *
+     */
     private JButton btnAceptar;
-    //  Cuadro de texto para PuntoX1
+    /**
+     * Cuadro de texto para PuntoX1
+     *
+     */
     private JTextField campoX1;
-    //  Cuadro de texto para PuntoY1  
+    /**
+     * Cuadro de texto para PuntoY1
+     *
+     */
     private JTextField campoY1;
-    //  Cuadro de texto para PuntoX2 
+    /**
+     * Cuadro de texto para PuntoX2
+     *
+     */
     private JTextField campoX2;
-    //  Cuadro de texto para PuntoY2
+    /**
+     * Cuadro de texto para PuntoY2
+     *
+     */
     private JTextField campoY2;
-    //  Cuadro de texto para PuntoX3
+    /**
+     * Cuadro de texto para PuntoX3
+     *
+     */
     private JTextField campoX3;
-    //  Cuadro de texto para PuntoY3
+    /**
+     * Cuadro de texto para PuntoY3
+     *
+     */
     private JTextField campoY3;
-    //  Cuadro de texto para PuntoX4
+    /**
+     * Cuadro de texto para PuntoX4
+     *
+     */
     private JTextField campoX4;
-    //  Cuadro de texto para PuntoY4
+    /**
+     * Cuadro de texto para PuntoY4
+     *
+     */
     private JTextField campoY4;
-    //  Etiqueta que imprime el Punto1
+    /**
+     * Etiqueta que imprime el Punto1
+     *
+     */
     private final JLabel Punto1 = new JLabel("Punto1");
-    //  Etiqueta que imprime el Punto2
+    /**
+     * Etiqueta que imprime el Punto2
+     *
+     */
     private final JLabel Punto2 = new JLabel("Punto2");
-    //  Etiqueta que imprime el Punto3
+    /**
+     * Etiqueta que imprime el Punto3
+     *
+     */
     private final JLabel Punto3 = new JLabel("Punto3");
-    //  Etiqueta que imprime el Punto4
+    /**
+     * Etiqueta que imprime el Punto4
+     *
+     */
     private final JLabel Punto4 = new JLabel("Punto4");
-    //  Etiqueta que imprime mensaje error1
+    /**
+     * Etiqueta que imprime mensaje error1
+     *
+     */
     private final JLabel txtError1 = new JLabel("               Puntos NO");
-    //  Etiqueta que imprime mensaje error2
+    /**
+     * Etiqueta que imprime mensaje error2
+     *
+     */
     private final JLabel txtError2 = new JLabel("validos!");
-    //  Guarda lo que se ingrese en X1
+    /**
+     * Guarda lo que se ingrese en X1
+     *
+     */
     private String campo1X;
-    //  Guarda lo que se ingrese en Y1
+    /**
+     * Guarda lo que se ingrese en Y1
+     *
+     */
     private String campo1Y;
-    //  Guarda lo que se ingrese en X2
+    /**
+     * Guarda lo que se ingrese en X2
+     *
+     */
     private String campo2X;
-    //  Guarda lo que se ingrese en Y2
+    /**
+     * Guarda lo que se ingrese en Y2
+     *
+     */
     private String campo2Y;
-    //  Guarda lo que se ingrese en X3
+    /**
+     * Guarda lo que se ingrese en X3
+     *
+     */
     private String campo3X;
-    //  Guarda lo que se ingrese en Y3
+    /**
+     * Guarda lo que se ingrese en Y3
+     *
+     */
     private String campo3Y;
-    //  Guarda lo que se ingrese en X4
+    /**
+     * Guarda lo que se ingrese en X4
+     *
+     */
     private String campo4X;
-    //  Guarda lo que se ingrese en Y4
+    /**
+     * Guarda lo que se ingrese en Y4
+     *
+     */
     private String campo4Y;
-    //  Guarda el tipo de figura
+    /**
+     * Guarda el tipo de figura
+     *
+     */
     private int tipo;
-    //  Guarda la Interfaz
+    /**
+     * Guarda la Interfaz
+     *
+     */
     private Interfaz interfaz;
+    /**
+     * Crear Array para guardar las figuras
+     */
     private ArrayList<Figura> lista = new ArrayList();
+    /**
+     * Boton que grafica segun la posicion en el arrayList
+     */
     private JButton btnLista;
-
+    /**
+     * String donde va a recibir lo leido en el JtextField "posicion"
+     */
     private String campoP;
+    /**
+     * recibe la posicion que se digite
+     */
 
     private JTextField posicion;
+    int pos;
 
     /**
      * Constructor de la clase puntos
@@ -151,38 +238,22 @@ public class Puntos extends JDialog implements ActionListener {
         btnAceptar.setActionCommand("Aceptar");
         btnAceptar.addActionListener(this);
         add(btnAceptar);
+
         btnLista = new JButton("Buscar");
         btnLista.setActionCommand("Buscar");
         btnLista.addActionListener(this);
         add(btnLista);
+
         posicion = new JTextField(8);
         add(posicion);
     }
-    /*public void btnAceptarActionPerformed(ActionEvent e){
-     if("Aceptar".equals(e.getActionCommand())) {
-     campo1X = campoX1.getText();
-     campo1Y = campoY1.getText();
-     campo2X = campoX2.getText();
-     campo2Y = campoY2.getText();
-     campo3X = campoX3.getText();
-     campo3Y = campoY3.getText();
-     campo4X = campoX4.getText();
-     campo4Y = campoY4.getText();
-     }
-     if(tipo == 1){
-            
-     iniciarTriangulo();
-     }
-     else if(tipo == 2){
-     iniciarCuadrado();
-     }
-     }
-     /**
+
+    /**
      * Metodo que esta a la espera por si se presiona un boton y cambia el valor
      * del color general
-     * @param e 
+     *
+     * @param e
      */
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnAceptar) {
@@ -197,7 +268,6 @@ public class Puntos extends JDialog implements ActionListener {
                 campo4Y = campoY4.getText();
             }
             if (tipo == 1) {
-
                 iniciarTriangulo();
             } else if (tipo == 2) {
                 iniciarCuadrado();
@@ -217,33 +287,32 @@ public class Puntos extends JDialog implements ActionListener {
             }
             if (tipo == 1) {
                 guardarTriangulo();
-                System.out.println("hola");
 
             } else if (tipo == 2) {
                 guardarCuadrado();
             }
         }
         if (e.getSource() == btnLista) {
-            int pos = 0;
+            
             if ("Buscar".equals(e.getActionCommand())) {
                 campoP = posicion.getText();
                 pos = Integer.parseInt(campoP);
+                System.out.println(pos);
                 Figura x = lista.get(pos);
+                System.out.println(x);
                 if (x instanceof Triangulo) {
+                   Triangulo triangulo =(Triangulo)x;
                     iniciarTriangulo();
-                }else
-                if (x instanceof Cuadrado) {
+                } else if (x instanceof Cuadrado) {
                     iniciarCuadrado();
                 }
 
             }
-            
 
         }
     }
 
     public void guardarTriangulo() {
-        // System.out.println("hola");
         campo1X = campoX1.getText();
         campo1Y = campoY1.getText();
         campo2X = campoX2.getText();
@@ -263,15 +332,6 @@ public class Puntos extends JDialog implements ActionListener {
         Punto punto3 = new Punto(x, y);
         Triangulo triangulo = new Triangulo(punto1, punto2, punto3);
         getLista().add(triangulo);
-         //lista.size();
-
-        System.out.println(lista.size());
-        for (Figura lista1 : getLista()) {
-
-            System.out.println(lista1);
-
-        }
-
     }
 
     public void guardarCuadrado() {
@@ -303,6 +363,11 @@ public class Puntos extends JDialog implements ActionListener {
      * Metodo que envia los valores de triangulo a Triangulo
      */
     public void iniciarTriangulo() {
+        campoP = posicion.getText();
+                pos = Integer.parseInt(campoP);
+                System.out.println(pos);
+                Figura x1 = lista.get(pos);
+                System.out.println(x1);
         double x = Double.parseDouble(campo1X);
         double y = Double.parseDouble(campo1Y);
         Punto punto1 = new Punto(x, y);
@@ -330,6 +395,7 @@ public class Puntos extends JDialog implements ActionListener {
         }
     }
 
+    
     /**
      * Metodo que envia los valores de cuadrado a Cuadrado
      */

@@ -20,23 +20,31 @@ import javax.swing.JTextField;
  */
 public class PanelBotones extends JPanel implements ActionListener {
 
-    //  Boton para cambiar el color de fondo
+    /**
+     * Boton para cambiar el color de fondo
+     *
+     */
     private JButton btnColorFondo;
-    //  Etiqueta que imprime el area
+    /**
+     * Etiqueta que imprime el area
+     *
+     */
     private JLabel etiquetaArea;
-    //  Etiqueta que imprime el perimetro
+    /**
+     * Etiqueta que imprime el perimetro
+     *
+     */
     private JLabel etiquetaPerimetro;
-    //  Etiqueta que imprime la altura
+    /**
+     * Etiqueta que imprime la altura
+     *
+     */
     private JLabel etiquetaAltura;
-    //  Guarda la interfaz
+    /**
+     * Guarda la interfaz
+     *
+     */
     private Interfaz interfaz;
-    private JButton btnLista;
-    private JButton btnL;
-
-    private String campoP;
-
-    private JTextField posicion;
-    ArrayList<Figura> lista2 = new ArrayList();
 
     /**
      * Constructor
@@ -44,7 +52,10 @@ public class PanelBotones extends JPanel implements ActionListener {
      * @param interfaz
      */
     public PanelBotones(Interfaz interfaz) {
-        //  Configuracion de panel
+        /**
+         * Configuracion de panel
+         *
+         */
         this.interfaz = interfaz;
         setLayout(new GridLayout(1, 0));
         setBackground(Color.magenta);
@@ -65,8 +76,6 @@ public class PanelBotones extends JPanel implements ActionListener {
         btnColorFondo.addActionListener(this);
         add(btnColorFondo);
     }
-
-  
 
     /**
      * Metodo que agrega las etiquetas al panel
@@ -92,7 +101,7 @@ public class PanelBotones extends JPanel implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-      
+
         if (e.getSource() == btnColorFondo) {
             if ("COLOR_FONDO".equals(e.getActionCommand())) {
                 CambiarColor dialogoCambiarColor = new CambiarColor(interfaz);
@@ -110,7 +119,6 @@ public class PanelBotones extends JPanel implements ActionListener {
         }
 
     }
-    
 
     /**
      * Obtiene el valor de la etiqueta de area

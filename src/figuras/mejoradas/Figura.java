@@ -7,17 +7,27 @@ package figuras.mejoradas;
  * @author Julian Andres Medina
  * @version 1.0
  */
-abstract public class Figura implements ImetodosFiguras{
+abstract public class Figura implements ImetodosFiguras {
 
-    //  Las tres figuras tienen minimo 2 puntos
-    // Objeto que guarda el valor (x,y) del punto 1
-
+    /**
+     * Objeto que guarda el valor (x,y) del punto 1
+     *
+     */
     protected Punto punto1;
-    //  Objeto que guarda el valor (x,y) del punto 2
+    /**
+     * Objeto que guarda el valor (x,y) del punto 2
+     *
+     */
     protected Punto punto2;
-    //  Area de la figura
+    /**
+     * Area de la figura
+     *
+     */
     protected double area;
-    //  Perimetro de la figura
+    /**
+     * Perimetro de la figura
+     *
+     */
     protected double perimetro;
 
     /**
