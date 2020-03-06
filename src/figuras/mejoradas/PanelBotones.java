@@ -1,4 +1,3 @@
-
 package figuras.mejoradas;
 
 import java.awt.Color;
@@ -6,9 +5,11 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  * Clase de panel de los botones color fondo y etiquetas
@@ -17,7 +18,8 @@ import javax.swing.JPanel;
  * @author Julian Andres Medina
  * @version 1.0
  */
-public class PanelBotones extends JPanel implements ActionListener{
+public class PanelBotones extends JPanel implements ActionListener {
+
     //  Boton para cambiar el color de fondo
     private JButton btnColorFondo;
     //  Etiqueta que imprime el area
@@ -28,72 +30,92 @@ public class PanelBotones extends JPanel implements ActionListener{
     private JLabel etiquetaAltura;
     //  Guarda la interfaz
     private Interfaz interfaz;
-    
-    
+    private JButton btnLista;
+    private JButton btnL;
+
+    private String campoP;
+
+    private JTextField posicion;
+    ArrayList<Figura> lista2 = new ArrayList();
+
     /**
      * Constructor
-     * @param interfaz 
+     *
+     * @param interfaz
      */
     public PanelBotones(Interfaz interfaz) {
         //  Configuracion de panel
         this.interfaz = interfaz;
         setLayout(new GridLayout(1, 0));
         setBackground(Color.magenta);
-        
+
         agregarBoton();
         agregarEtiqueta();
 
     }
-    
+
     /**
      * Metodo que agrega los botones al panel
      */
-    public void agregarBoton(){
+    public void agregarBoton() {
         btnColorFondo = new JButton("Cambiar Fondo");
-        btnColorFondo.setPreferredSize(new Dimension(20,30));
-        btnColorFondo.setMaximumSize(new Dimension(20,20));
+        btnColorFondo.setPreferredSize(new Dimension(20, 30));
+        btnColorFondo.setMaximumSize(new Dimension(20, 20));
         btnColorFondo.setActionCommand("COLOR_FONDO");
         btnColorFondo.addActionListener(this);
         add(btnColorFondo);
     }
-    
+
+  
+
     /**
      * Metodo que agrega las etiquetas al panel
      */
-    public void agregarEtiqueta(){
+    public void agregarEtiqueta() {
         etiquetaArea = new JLabel("Area: ");
         etiquetaArea.setForeground(Color.BLACK);
         add(etiquetaArea);
-        
+
         etiquetaPerimetro = new JLabel("Perimetro: ");
         etiquetaPerimetro.setForeground(Color.BLACK);
         add(etiquetaPerimetro);
 
         etiquetaAltura = new JLabel("");
         add(etiquetaAltura);
-    }
-    
-    /**
-     * Metodo que esta a la espera del boton presionado
-     * @param e 
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-       CambiarColor dialogoCambiarColor = new CambiarColor(interfaz);
-        switch (e.getActionCommand()) {
-            
-            case "COLOR_FONDO":
-                System.out.println("Imprimio boton color fondo");
-               dialogoCambiarColor.setTipo((byte)1);
-                break;
-        }
-        dialogoCambiarColor.mostrar();
-        
+
     }
 
     /**
+     * Metodo que esta a la espera del boton presionado
+     *
+     * @param e
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      
+        if (e.getSource() == btnColorFondo) {
+            if ("COLOR_FONDO".equals(e.getActionCommand())) {
+                CambiarColor dialogoCambiarColor = new CambiarColor(interfaz);
+                switch (e.getActionCommand()) {
+
+                    case "COLOR_FONDO":
+                        System.out.println("Imprimio boton color fondo");
+                        dialogoCambiarColor.setTipo((byte) 1);
+
+                        break;
+                }
+                dialogoCambiarColor.mostrar();
+
+            }
+        }
+
+    }
+    
+
+    /**
      * Obtiene el valor de la etiqueta de area
-     * @return 
+     *
+     * @return
      */
     public JLabel getEtiquetaArea() {
         return etiquetaArea;
@@ -101,7 +123,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 
     /**
      * Cambia el valor de la etiqueta de area
-     * @param etiquetaArea 
+     *
+     * @param etiquetaArea
      */
     public void setEtiquetaArea(JLabel etiquetaArea) {
         this.etiquetaArea = etiquetaArea;
@@ -109,7 +132,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 
     /**
      * Obtener el valor de la etiqueta de perimetro
-     * @return 
+     *
+     * @return
      */
     public JLabel getEtiquetaPerimetro() {
         return etiquetaPerimetro;
@@ -117,7 +141,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 
     /**
      * Cambia el valor de la etiqueta de perimetro
-     * @param etiquetaPerimetro 
+     *
+     * @param etiquetaPerimetro
      */
     public void setEtiquetaPerimetro(JLabel etiquetaPerimetro) {
         this.etiquetaPerimetro = etiquetaPerimetro;
@@ -125,7 +150,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 
     /**
      * Obtener el valor de la etiqueta de dato especifico
-     * @return 
+     *
+     * @return
      */
     public JLabel getEtiquetaAltura() {
         return etiquetaAltura;
@@ -133,10 +159,11 @@ public class PanelBotones extends JPanel implements ActionListener{
 
     /**
      * Cambia el valor de la etiqueta de dato especifico
-     * @param etiquetaAltura 
+     *
+     * @param etiquetaAltura
      */
     public void setEtiquetaAltura(JLabel etiquetaAltura) {
         this.etiquetaAltura = etiquetaAltura;
     }
-    
+
 }
